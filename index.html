@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas</title>
+    <style>
+        .movie-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: -7px; /* Margen negativo para reducir la distancia entre los elementos */
+        }
+        .movie-item {
+            margin: 7px;
+            flex: 0 0 25%; /* Para mostrar hasta 4 elementos por fila */
+            max-width: 25%; /* Para mostrar hasta 4 elementos por fila */
+        }
+        .movie-item img {
+            cursor: pointer;
+            width: 300px;
+            height: 500px;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        function reproducirVideo(videoUrl) {
+            var video = document.createElement('video');
+            video.src = videoUrl;
+            video.controls = true;
+            video.autoplay = true;
+            video.style.width = '100%';
+            video.style.height = '100%';
+
+            var closeButton = document.createElement('button');
+            closeButton.innerText = 'Cerrar';
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.padding = '5px 10px';
+            closeButton.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+            closeButton.style.border = 'none';
+            closeButton.style.cursor = 'pointer';
+            closeButton.addEventListener('click', function() {
+                modal.remove();
+            });
+
+            var modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.appendChild(video);
+            modal.appendChild(closeButton);
+
+            document.body.appendChild(modal);
+        }
+    </script>
+</head>
+<body>
+    <h2></h2>
+    <div class="movie-list">
+        <div class="movie-item">
+            <img src="avatar2.jpg" alt="Avatar 2" onclick="reproducirVideo('Avatar.El.Camino.Del.Agua.2022.4k-dual-lat.mkv')">
+        </div>
+        <div class="movie-item">
+            <img src="exorcismo.jpg" alt="El Exorcismo del Papa" onclick="reproducirVideo('El Exorcista Del Papa 1080p DUAL 6.12 GB.mkv')">
+        </div>
+        <div class="movie-item">
+            <img src="transformers2.jpg" alt="Transformers 2" onclick="reproducirVideo('Transformers La Venganza de los Caídos (2009) REMUX 4K Latino WWW.GDRIVELatinoHD.NET.mkv')">
+        </div>
+        <!-- Agrega más películas aquí -->
+    </div>
+    <div class="movie-list">
+        <div class="movie-item">
+            <img src="images.jpg" alt="Spider-Man Sin camino a casa" onclick="reproducirVideo('Spider-Man Sin camino a casa (2021) 4K DV HDR.MKV')">
+        </div>
+        <div class="movie-item">
+            <img src="imagess.jpg" alt="Ant-Man and the Wasp Quantumania" onclick="reproducirVideo('Ant.Man.and.the.Wasp.Quantumania.2023.2160p.IT.WEB-DL.DDP7.1.Atmos.HDR.HEVC-LMHD.mkv')">
+        </div>
+        <div class="movie-item">
+            <img src="DBZBTD.jpg" alt="Dragon Ball Z - La batalla de los dioses" onclick="reproducirVideo('Dragon Ball Z - La batalla de los dioses [2013] [WWW.LEON-GAMES.COM].mkv')">
+        </div>
+        <!-- Agrega más películas aquí -->
+    </div>
+    <div class="movie-list">
+        <div class="movie-item">
+            <img src="justiciero.jpg" alt="El justiciero" onclick="reproducirVideo('El justiciero [2014] WWW.LEON-GAMES.COM.mkv')">
+        </div>
+       <h2></h2>
+        <!-- Agrega más películas aquí -->
+    </div>
+</body>
+</html>
